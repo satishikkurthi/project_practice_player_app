@@ -1,0 +1,15 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+	//loading an driver class
+		try {
+			Class.forName("com.mysql.cj.jdbc.driver");
+			System.out.println("\n driver loaded successfully");
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}

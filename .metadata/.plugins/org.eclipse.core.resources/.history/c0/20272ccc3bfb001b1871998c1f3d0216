@@ -1,0 +1,28 @@
+package com.gaurav.dbutil;
+
+import java.sql.Connection;
+
+public class mySqlDbConnection {
+
+	public static	Connection  con;
+	
+	private mySqlDbConnection() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public static Connection getConnection() throws ClassNotFoundException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("\n driver loaded successfully");
+		String url="jdbc:mysql://localhost:3306/player";
+		String username="root";
+		String password="1234";
+		return con;
+	}
+	
+	
+	
+	
+	
+}

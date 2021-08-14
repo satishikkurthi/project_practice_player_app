@@ -1,0 +1,12 @@
+package com.gaurav.search.service;
+
+import com.gaurav.exception.BusinessException;
+import com.gaurav.model.Player;
+
+public interface SerachService { // this is business layer
+
+	public Player getPlayerById(int id) throws BusinessException;
+	public Player getPlayerByContact(long contact) throws BusinessException;
+	
+	
+}

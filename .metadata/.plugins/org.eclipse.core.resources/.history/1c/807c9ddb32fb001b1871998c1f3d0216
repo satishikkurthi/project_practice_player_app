@@ -1,0 +1,35 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Main {
+
+	public static void main(String[] args) {
+	//loading an driver class
+		Connection con=null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("\n driver loaded successfully");
+			String url="jdbc:mysql://localhost:3306/player";
+			String username="root";
+			String password="1234";
+			try {
+				con=DriverManager.getConnection(url, username,password);
+				System.out.println("\n connection established");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.gaurav.team.service;
+
+public interface TeamService {
+
+}

@@ -1,0 +1,103 @@
+package com.gaurav;
+
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+import com.gaurav.search.service.SerachService;
+import com.gaurav.search.service.impl.PlayerSearchImpl;
+
+public class Main {
+
+	private static Logger log = Logger.getLogger(Main.class);
+
+	public static void main(String[] args) {
+
+		log.info("\n Hi Welcome to the console based application of gaurav player app");
+		log.info("===============================================");
+		Scanner sc = new Scanner(System.in);
+		int ch = 0;
+		do {
+			log.info("1) create an player");
+			log.info("2) delete an player");
+			log.info("3) delete an player");
+			log.info("3)list all the players");
+			log.info("4) serach players based upon the name,age,gender,city,sportsName");
+			log.info("5) list all teams");
+			log.info("6) good bye player app we will visit again");
+			log.info("\n plz select an option from (1-6)");
+			try {
+				ch = Integer.parseInt((sc.nextLine()));
+			} catch (NumberFormatException e) {
+				// System.out.println("\n sorry invalid input plz try again");
+			}
+			switch (ch) {
+			case 1:
+				log.info("\n under construction");
+				break;
+			case 2:
+				log.info("\n under construction");
+				break;
+			case 3:
+				log.info("\n under construction");
+				break;
+			case 4:
+				int option = 0;
+				SerachService ss=new PlayerSearchImpl();
+				do {
+					log.info("1)search by id");
+					log.info("2)search by name");
+					log.info("3)search by age");
+					log.info("4)search by gender");
+					log.info("5)search by city");
+					log.info("6)search by sportsName");
+					log.info("7)search by contact");
+					log.info("8)search by teamName");
+					log.info("9) go back to main menu");
+					log.info("\n plz select an option from (1-9)");
+					try {
+						option = Integer.parseInt(sc.nextLine());
+					} catch (NumberFormatException e) {
+					}
+					switch (option) {
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+						case 7:
+							break;
+						case 8:
+							break;
+						case 9:
+							break;
+					default:
+						log.info("\n invalid choice");
+						break;
+					}
+				} while (option != 9);
+				log.info("\n under construction");
+				break;
+			case 5:
+				log.info("\n under construction");
+				break;
+			case 6:
+				log.info("\n thank you for choosing the gaurav shopping app plz visit again and also "
+						+ "if any product is not good plz feedback us :)");
+				break;
+			default:
+				log.info("it is an invalid choice plz choose the option between 1 to 6");
+				break;
+			}
+		} while (ch != 6);
+
+	}
+
+}

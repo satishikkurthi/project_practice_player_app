@@ -1,0 +1,5 @@
+package com.gaurav.search.service;
+
+public interface SerachService {
+
+}

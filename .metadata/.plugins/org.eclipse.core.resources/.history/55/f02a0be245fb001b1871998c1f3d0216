@@ -1,0 +1,12 @@
+package com.gaurav.dao;
+
+import java.util.List;
+
+import com.gaurav.exception.BusinessException;
+import com.gaurav.model.Player;
+
+public interface PlayerDao  {
+
+	public List<Player> getAllPlayers() throws BusinessException;
+	
+}

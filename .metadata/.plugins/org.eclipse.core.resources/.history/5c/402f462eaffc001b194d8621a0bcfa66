@@ -1,0 +1,91 @@
+package com.gaurav.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.gaurav.dao.CrudDao;
+//import com.gaurav.dbutil.mySqlDbConnection;
+//import com.gaurav.dbutil.mySqlDbConnection;
+import com.gaurav.exception.BusinessException;
+import com.gaurav.model.Player;
+import com.gaurav.util.MysqlDbConnection;
+
+public class CrudDaoImpl implements CrudDao{
+
+	@Override
+	public List<Player> getAllPlayers() throws BusinessException {
+		List<Player> playerList = new ArrayList<>();
+		try (Connection con = MysqlDbConnection.getConnection()) {
+			String sql = " select player_id,name,age,gender,city,sportsName,contact from player";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Player p = new Player();
+				p.setPlayer_id(rs.getInt("player_id"));
+				p.setName(rs.getString("name"));
+				p.setAge(rs.getInt("age"));
+				p.setGender(rs.getString("gender"));
+				p.setCity(rs.getString("city"));
+				p.setSportsName(rs.getString("sportsName"));
+				p.setContact(rs.getLong("contact"));
+				playerList.add(p);
+
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			System.out.println(e.getMessage());
+			throw new BusinessException("internal server has occured plz contact the system admin");
+		}
+		return playerList;
+	
+	}
+
+	@Override
+	public int createPlayer(Player p) throws BusinessException {
+		
+		return 0;
+	}
+
+	@Override
+	public int updatePlayer(int player_id, long contact) throws BusinessException {
+		int a=0;
+		try(Connection con=MysqlDbConnection.getConnection()){
+			String sql="update player set contact=? where player_id=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setLong(1,contact);
+			ps.setInt(2,player_id);
+			a=ps.executeUpdate();
+			System.out.println("\n record updated " + a);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
+	
+	}
+
+	@Override
+	public int DeletePlayer(int player_id) throws BusinessException {
+		int a=0;
+		try(Connection con=MysqlDbConnection.getConnection()){
+			String sql="delete from player where player_id=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1,player_id);
+			a=ps.executeUpdate();
+			System.out.println("\n deleted record  successfully" + a);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new BusinessException("could not delete the record plz check the id you give is correct or not");
+
+			
+		}
+		return a;
+	
+	}
+
+}

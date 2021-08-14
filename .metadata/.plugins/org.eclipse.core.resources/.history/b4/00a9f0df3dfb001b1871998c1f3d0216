@@ -1,0 +1,15 @@
+package com.gaurav.dao.impl;
+
+import java.util.List;
+
+import com.gaurav.dao.PlayerDao;
+import com.gaurav.model.Player;
+
+public class PlayerDaoImpl implements PlayerDao {
+
+	@Override
+	public List<Player> getAllPlayers() {
+		return null;
+	}
+
+}

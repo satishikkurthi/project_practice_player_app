@@ -1,0 +1,35 @@
+package com.gaurav.main;
+
+import java.util.List;
+
+import com.gaurav.dao.PlayerDao;
+import com.gaurav.dao.impl.PlayerDaoImpl;
+import com.gaurav.exception.BusinessException;
+import com.gaurav.model.Player;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		PlayerDao pd=new PlayerDaoImpl();
+		
+		try {
+			List<Player> playerList=pd.getAllPlayers();
+			playerList.stream().forEach(e->System.out.println(e));
+		} catch (BusinessException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		int player_id=104;
+		long contact=123891891809L;
+		try {
+			System.out.println(pd.updatePlayer(player_id, contact));
+		} catch (BusinessException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}
