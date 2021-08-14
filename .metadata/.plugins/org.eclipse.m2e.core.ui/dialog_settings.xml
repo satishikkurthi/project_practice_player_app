@@ -46,9 +46,11 @@
 			<item value="com.gaurav"/>
 		</list>
 		<list key="name">
+			<item value="PlayerApp"/>
 			<item value="HelloGauravProject"/>
 		</list>
 		<list key="artifactId">
+			<item value="PlayerApp"/>
 			<item value="HelloGauravProject"/>
 			<item value="Demo"/>
 		</list>
