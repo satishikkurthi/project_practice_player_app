@@ -1,0 +1,20 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Enter your product:");
+        Scanner sc = new Scanner (System.in);
+        String name=sc.next();
+        switch(name)
+        {
+            case "apple":
+                 System.out.println("selected apple");
+                 break;
+            case  "windows":
+                System.out.println("selected windows");
+                break;
+            default:
+              System.out.println("selected different");
+              
+        }
+    }
+}
