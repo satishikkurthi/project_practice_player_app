@@ -1,0 +1,51 @@
+import java.util.*;                                              
+public class Main
+{
+	 public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);                                       
+        int a=sc.nextInt();
+        int b =sc.nextInt();
+        for(int i=0;i<a;i++)
+        {
+            for(int j=0;j<b;j++)
+            {
+                System.out.print("8");
+            }
+            System.out.println();
+            
+        }
+       
+    }
+}
+
+o/p:
+88888
+88888
+88888
+88888
+88888
+
+for(int i=1;i<=a;i++)
+        {
+            for(int j=0;j<i;j++)
+            {
+                System.out.print("8");
+            }
+            System.out.println();
+            
+        }
+        
+o/p:
+8
+88
+888
+8888
+88888
+        
+
+
+        
+        
+        
+        
